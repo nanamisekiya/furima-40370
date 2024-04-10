@@ -42,8 +42,8 @@
 
 ### Association
 - has_one :order
-- belong_to :item
-- belong_to :user
+- belongs_to :item
+- belongs_to :user
 
 ## ordersテーブル
 | Column              | Type      | Options     |
@@ -57,6 +57,6 @@
 | purchase_record     | references| null: false, foreign_key: true|
 
 ### Association
-belong_to :purchase_record
+belongs_to :purchase_record
 
 
