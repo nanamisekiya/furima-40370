@@ -17,14 +17,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_11_122503) do
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
-    t.string "product_name", null: false
-    t.text "product_description", null: false
-    t.integer "product_category_id", null: false
-    t.integer "product_status_id", null: false
-    t.integer "shipping_fee_id", null: false
-    t.integer "shippind_area_id", null: false
-    t.integer "delivery_time_id", null: false
-    t.integer "product_price", null: false
+    t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.date "birthday", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
