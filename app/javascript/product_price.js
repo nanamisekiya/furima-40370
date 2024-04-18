@@ -8,6 +8,6 @@ priceInput.addEventListener("input", () => {
 
   const addTaxValue = addTaxDom.innerHTML;
   const salesProfit = document.getElementById("profit");
-  salesProfit.innerHTML = inputValue - addTaxValue
+  salesProfit.innerHTML = Math.floor(inputValue - addTaxValue);
   }
 });
