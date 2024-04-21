@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
-    redirect_to root_path
+    redirect_to item_path(params[:id])
   end
 
   private
