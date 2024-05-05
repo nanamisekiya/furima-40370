@@ -14,7 +14,7 @@
 
 ### Association
 - has_many :items
-- has_many :purchase_records
+- has_many :purchase
 
 ## itemsテーブル
 | Column              | Type      | Options     |
@@ -30,11 +30,11 @@
 | user                | references| null: false, foreign_key: true|
 
 ### Association
-- has_one :purchase_record
+- has_one :purchase
 - belongs_to :user
 
 
-## purchase_recordsテーブル
+## purchaseテーブル
 | Column             | Type      | Options     |
 | ------------------ | ----------| ----------- |
 | user               | references| null: false, foreign_key: true|
