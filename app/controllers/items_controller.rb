@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
+    @purchases = Purchase.all
   end
 
   def new
@@ -20,12 +21,15 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @purchases = Purchase.all
   end
 
   def edit
-    return if current_user.id == @item.user.id
-
+    @purchases = Purchase.all
+    if @purchases.exists?(item_id: @item.id) || current_user.id != @item.user.id 
     redirect_to root_path
+    end
+
   end
 
   def update
