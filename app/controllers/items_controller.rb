@@ -26,10 +26,9 @@ class ItemsController < ApplicationController
 
   def edit
     @purchases = Purchase.all
-    if @purchases.exists?(item_id: @item.id) || current_user.id != @item.user.id 
-    redirect_to root_path
-    end
+    return unless @purchases.exists?(item_id: @item.id) || current_user.id != @item.user.id
 
+    redirect_to root_path
   end
 
   def update

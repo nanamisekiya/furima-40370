@@ -26,7 +26,7 @@ RSpec.describe OrderPurchase, type: :model do
       it '郵便番号にーがないと登録できない' do
         @order_purchase.post_code = '1234567'
         @order_purchase.valid?
-        expect(@order_purchase.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order_purchase.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it '都道府県が1だと登録できない' do
         @order_purchase.shipping_area_id = '1'
@@ -51,12 +51,12 @@ RSpec.describe OrderPurchase, type: :model do
       it '電話番号が９桁の場合登録できない' do
         @order_purchase.phone_number = '123456789'
         @order_purchase.valid?
-        expect(@order_purchase.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_purchase.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号が全角の場合登録できない' do
         @order_purchase.phone_number = '１２３４５６７８９０１'
         @order_purchase.valid?
-        expect(@order_purchase.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_purchase.errors.full_messages).to include('Phone number is invalid')
       end
       it 'ユーザーが紐づいていない場合購入できない' do
         @order_purchase.user_id = nil
@@ -70,5 +70,4 @@ RSpec.describe OrderPurchase, type: :model do
       end
     end
   end
-
 end
