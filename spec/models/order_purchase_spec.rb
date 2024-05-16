@@ -18,6 +18,11 @@ RSpec.describe OrderPurchase, type: :model do
       end
     end
     context '商品が購入できない場合' do
+      it 'tokenが空だと購入できない' do
+        @order_purchase.token = ''
+        @order_purchase.valid?
+        expect(@order_purchase.errors.full_messages).to include("Token can't be blank")
+      end
       it '郵便番号が空だと登録できない' do
         @order_purchase.post_code = ''
         @order_purchase.valid?
@@ -50,6 +55,11 @@ RSpec.describe OrderPurchase, type: :model do
       end
       it '電話番号が９桁の場合登録できない' do
         @order_purchase.phone_number = '123456789'
+        @order_purchase.valid?
+        expect(@order_purchase.errors.full_messages).to include('Phone number is invalid')
+      end
+      it '電話番号が12桁以上の場合登録できない' do
+        @order_purchase.phone_number = '123456789012'
         @order_purchase.valid?
         expect(@order_purchase.errors.full_messages).to include('Phone number is invalid')
       end
